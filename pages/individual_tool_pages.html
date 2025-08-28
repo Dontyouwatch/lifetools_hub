@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage Calculator - LifeTools Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Flifetools3578back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="bg-surface shadow-soft sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="12" r="2"/>
+                        <circle cx="12" cy="20" r="2"/>
+                        <circle cx="20" cy="20" r="2"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">Alfrez</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="text-primary font-medium">Popular Tools</a>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-smooth">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="tools_directory.html" class="block px-3 py-2 text-text-secondary">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="block px-3 py-2 text-primary font-medium">Popular Tools</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="bg-secondary-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Financial Tools</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-primary font-medium">Mortgage Calculator</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Tool Header -->
+    <section class="bg-gradient-to-br from-primary-50 to-accent-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-primary text-white p-4 rounded-2xl mr-4">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <h1 class="text-3xl md:text-4xl font-bold text-text-primary">Mortgage Calculator</h1>
+                        <p class="text-text-secondary mt-2">Calculate monthly payments, total interest, and amortization schedules</p>
+                    </div>
+                </div>
+                
+                <!-- Tool Stats -->
+                <div class="flex justify-center space-x-8 text-sm">
+                    <div class="text-center">
+                        <div class="font-bold text-primary">2.3M+</div>
+                        <div class="text-text-secondary">Calculations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-success">4.9/5</div>
+                        <div class="text-text-secondary">User Rating</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-accent">Free</div>
+                        <div class="text-text-secondary">Always</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Calculator Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Calculator Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-8">
+                        <h2 class="text-2xl font-bold text-text-primary mb-6">Loan Details</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Home Price -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">
+                                    Home Price
+                                    <button class="ml-1 text-text-secondary hover:text-primary" data-tooltip="The total purchase price of the home">
+                                        <svg class="h-4 w-4 inline" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </label>
+                                <div class="relative">
+                                    <span class="absolute left-3 top-3 text-text-secondary">$</span>
+                                    <input type="number" id="home-price" value="350000" class="w-full pl-8 pr-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                </div>
+                            </div>
+                            
+                            <!-- Down Payment -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">
+                                    Down Payment
+                                    <button class="ml-1 text-text-secondary hover:text-primary" data-tooltip="Amount paid upfront, typically 10-20% of home price">
+                                        <svg class="h-4 w-4 inline" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </label>
+                                <div class="flex space-x-2">
+                                    <div class="relative flex-1">
+                                        <span class="absolute left-3 top-3 text-text-secondary">$</span>
+                                        <input type="number" id="down-payment" value="70000" class="w-full pl-8 pr-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                    </div>
+                                    <div class="relative">
+                                        <input type="number" id="down-payment-percent" value="20" class="w-20 pr-8 pl-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                        <span class="absolute right-3 top-3 text-text-secondary">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Interest Rate -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">
+                                    Interest Rate (Annual)
+                                    <button class="ml-1 text-text-secondary hover:text-primary" data-tooltip="Annual percentage rate for the loan">
+                                        <svg class="h-4 w-4 inline" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </label>
+                                <div class="relative">
+                                    <input type="number" id="interest-rate" value="6.5" step="0.01" class="w-full pr-8 pl-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                    <span class="absolute right-3 top-3 text-text-secondary">%</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Loan Term -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">
+                                    Loan Term
+                                    <button class="ml-1 text-text-secondary hover:text-primary" data-tooltip="Length of the mortgage in years">
+                                        <svg class="h-4 w-4 inline" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </label>
+                                <select id="loan-term" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth">
+                                    <option value="15">15 years</option>
+                                    <option value="20">20 years</option>
+                                    <option value="25">25 years</option>
+                                    <option value="30" selected>30 years</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Costs -->
+                        <div class="mt-8">
+                            <h3 class="text-lg font-semibold text-text-primary mb-4">Additional Monthly Costs (Optional)</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-secondary mb-2">Property Tax</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 top-3 text-text-secondary">$</span>
+                                        <input type="number" id="property-tax" value="350" class="w-full pl-8 pr-4 py-2 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-secondary mb-2">Home Insurance</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 top-3 text-text-secondary">$</span>
+                                        <input type="number" id="home-insurance" value="150" class="w-full pl-8 pr-4 py-2 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-secondary mb-2">PMI</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 top-3 text-text-secondary">$</span>
+                                        <input type="number" id="pmi" value="233" class="w-full pl-8 pr-4 py-2 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Calculate Button -->
+                        <div class="mt-8">
+                            <button id="calculate-btn" class="w-full bg-primary text-white py-4 rounded-lg font-semibold hover:bg-primary-700 transition-smooth">
+                                Calculate Mortgage Payment
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results Section -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6" id="results-section">
+                        <h2 class="text-2xl font-bold text-text-primary mb-6">Payment Breakdown</h2>
+                        
+                        <!-- Monthly Payment Summary -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-primary mb-2" id="monthly-payment">$2,212</div>
+                                    <div class="text-text-secondary">Monthly Payment</div>
+                                    <div class="text-sm text-text-secondary mt-2">(Principal & Interest)</div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-xl p-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-accent mb-2" id="total-payment">$2,945</div>
+                                    <div class="text-text-secondary">Total Monthly Payment</div>
+                                    <div class="text-sm text-text-secondary mt-2">(Including taxes & insurance)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Details -->
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-semibold text-text-primary mb-4">Loan Summary</h3>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Loan Amount:</span>
+                                        <span class="font-semibold" id="loan-amount">$280,000</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Total Interest:</span>
+                                        <span class="font-semibold text-warning" id="total-interest">$516,320</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Total Paid:</span>
+                                        <span class="font-semibold" id="total-paid">$796,320</span>
+                                    </div>
+                                    <div class="flex justify-between border-t pt-3">
+                                        <span class="text-text-secondary">Payoff Date:</span>
+                                        <span class="font-semibold text-success" id="payoff-date">January 2055</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-text-primary mb-4">First Payment Breakdown</h3>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Principal:</span>
+                                        <span class="font-semibold text-success">$695</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Interest:</span>
+                                        <span class="font-semibold text-warning">$1,517</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Property Tax:</span>
+                                        <span class="font-semibold">$350</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Insurance:</span>
+                                        <span class="font-semibold">$150</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">PMI:</span>
+                                        <span class="font-semibold">$233</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Visual Chart Placeholder -->
+                        <div class="mt-8">
+                            <h3 class="text-lg font-semibold text-text-primary mb-4">Payment Distribution</h3>
+                            <div class="bg-secondary-100 rounded-xl p-6 h-64 flex items-center justify-center">
+                                <div class="text-center">
+                                    <svg class="h-16 w-16 text-secondary-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/>
+                                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/>
+                                    </svg>
+                                    <p class="text-text-secondary">Interactive chart showing principal vs interest over time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Pro Tips -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
+                            <svg class="h-5 w-5 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.664 1.319a.75.75 0 01.672 0 41.059 41.059 0 018.198 5.424.75.75 0 01-.254 1.285 31.372 31.372 0 00-7.86 3.83.75.75 0 01-.84 0 31.508 31.508 0 00-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 013.305-2.033.75.75 0 00-.714-1.319 37 37 0 00-3.446 2.12A2.216 2.216 0 006 9.393v.38a31.293 31.293 0 00-4.28-1.746.75.75 0 01-.254-1.285 41.059 41.059 0 018.198-5.424zM6 11.459a29.848 29.848 0 00-2.455-1.158 41.029 41.029 0 00-.39 3.114.75.75 0 00.419.74c.528.256 1.046.53 1.554.82-.21-.899-.455-1.746-.754-2.491a.75.75 0 00-.374-.025z" clip-rule="evenodd"/>
+                            </svg>
+                            Pro Tips
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-success-100 rounded-lg p-4">
+                                <div class="font-medium text-success-600 mb-2">💡 Extra Payment Tip</div>
+                                <p class="text-sm text-text-secondary">Adding just $50/month to your principal can save over $30,000 in interest over the life of your loan!</p>
+                            </div>
+                            <div class="bg-primary-100 rounded-lg p-4">
+                                <div class="font-medium text-primary-600 mb-2">📊 Rate Shopping</div>
+                                <p class="text-sm text-text-secondary">A 0.25% difference in interest rate can save you thousands. Always compare rates from multiple lenders.</p>
+                            </div>
+                            <div class="bg-warning-100 rounded-lg p-4">
+                                <div class="font-medium text-warning-600 mb-2">🏠 Down Payment</div>
+                                <p class="text-sm text-text-secondary">20% down payment eliminates PMI and reduces your monthly payment significantly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Tools -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4">Related Tools</h3>
+                        <div class="space-y-3">
+                            <a href="individual_tool_pages.html" class="flex items-center p-3 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-smooth">
+                                <div class="bg-accent text-white p-2 rounded-lg mr-3">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-text-primary">Refinance Calculator</div>
+                                    <div class="text-sm text-text-secondary">Compare refinancing options</div>
+                                </div>
+                            </a>
+                            <a href="individual_tool_pages.html" class="flex items-center p-3 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-smooth">
+                                <div class="bg-success text-white p-2 rounded-lg mr-3">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4z"/>
+                                        <path d="M6 8a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-text-primary">Affordability Calculator</div>
+                                    <div class="text-sm text-text-secondary">How much house can you afford?</div>
+                                </div>
+                            </a>
+                            <a href="individual_tool_pages.html" class="flex items-center p-3 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-smooth">
+                                <div class="bg-primary text-white p-2 rounded-lg mr-3">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-text-primary">Property Tax Calculator</div>
+                                    <div class="text-sm text-text-secondary">Estimate property taxes</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Save & Share -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4">Save & Share</h3>
+                        <div class="space-y-3">
+                            <button class="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary-700 transition-smooth flex items-center justify-center">
+                                <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/>
+                                </svg>
+                                Save to Dashboard
+                            </button>
+                            <button class="w-full bg-accent text-white py-3 rounded-lg font-medium hover:bg-accent-600 transition-smooth flex items-center justify-center">
+                                <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
+                                </svg>
+                                Share Results
+                            </button>
+                            <button class="w-full bg-secondary-100 text-text-primary py-3 rounded-lg font-medium hover:bg-secondary-200 transition-smooth flex items-center justify-center">
+                                <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                </svg>
+                                Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Features Section -->
+    <section class="py-16 bg-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">Advanced Features</h2>
+                <p class="text-text-secondary">Explore powerful tools to optimize your mortgage strategy</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Amortization Schedule -->
+                <div class="bg-surface rounded-2xl shadow-soft p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white p-3 rounded-xl mr-4">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-text-primary">Amortization Schedule</h3>
+                    </div>
+                    <p class="text-text-secondary mb-4">View detailed payment breakdown for every month of your loan term.</p>
+                    <button class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-smooth">
+                        View Schedule
+                    </button>
+                </div>
+                
+                <!-- Extra Payment Calculator -->
+                <div class="bg-surface rounded-2xl shadow-soft p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-success text-white p-3 rounded-xl mr-4">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-text-primary">Extra Payments</h3>
+                    </div>
+                    <p class="text-text-secondary mb-4">Calculate how extra payments can save you thousands in interest.</p>
+                    <button class="bg-success text-white px-6 py-2 rounded-lg hover:bg-success-600 transition-smooth">
+                        Calculate Savings
+                    </button>
+                </div>
+                
+                <!-- Comparison Tool -->
+                <div class="bg-surface rounded-2xl shadow-soft p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-accent text-white p-3 rounded-xl mr-4">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-text-primary">Loan Comparison</h3>
+                    </div>
+                    <p class="text-text-secondary mb-4">Compare multiple loan scenarios side by side to find the best option.</p>
+                    <button class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent-600 transition-smooth">
+                        Compare Loans
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">How It Works</h2>
+                <p class="text-text-secondary">Understanding mortgage calculations made simple</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Enter Loan Details</h3>
+                    <p class="text-text-secondary text-sm">Input your home price, down payment, interest rate, and loan term.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-success-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-success">2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Add Extra Costs</h3>
+                    <p class="text-text-secondary text-sm">Include property taxes, insurance, and PMI for accurate totals.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-accent-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Get Results</h3>
+                    <p class="text-text-secondary text-sm">View your monthly payment and total loan cost breakdown.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-secondary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-secondary">4</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Optimize & Save</h3>
+                    <p class="text-text-secondary text-sm">Use advanced features to explore different scenarios and save money.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Tutorial Section -->
+    <section class="py-16 bg-gradient-to-br from-primary-50 to-accent-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-text-primary mb-4">Video Tutorial</h2>
+            <p class="text-text-secondary mb-8">Learn how to use our mortgage calculator effectively</p>
+            
+            <div class="bg-surface rounded-2xl shadow-deep p-8">
+                <div class="bg-secondary-100 rounded-xl h-64 flex items-center justify-center mb-6">
+                    <button class="bg-primary text-white rounded-full p-6 hover:bg-primary-700 transition-smooth">
+                        <svg class="h-12 w-12" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary mb-2">Mortgage Calculator Masterclass</h3>
+                <p class="text-text-secondary">5-minute tutorial covering all features and pro tips</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-700 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="12" r="2"/>
+                            <circle cx="12" cy="20" r="2"/>
+                            <circle cx="20" cy="20" r="2"/>
+                        </svg>
+                        <span class="text-xl font-bold">LifeTools Hub</span>
+                    </div>
+                    <p class="text-secondary-300 text-sm">
+                        Your comprehensive digital toolkit for life's calculations and conversions.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="homepage.html" class="text-secondary-300 hover:text-white transition-smooth">Home</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">All Tools</a></li>
+                        <li><a href="individual_tool_pages.html" class="text-secondary-300 hover:text-white transition-smooth">Popular Tools</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Tool Categories -->
+                <div>
+                    <h3 class="font-semibold mb-4">Categories</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Financial</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Health & Fitness</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Conversions</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Productivity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Contact Us</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Privacy Policy</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary-600 mt-8 pt-8 text-center">
+                <p class="text-secondary-300 text-sm">
+                    © 2025 LifeTools Hub. All Rights Reserved. | Made with ❤️ for productivity enthusiasts
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Calculator functionality
+        function calculateMortgage() {
+            const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            const loanTerm = parseInt(document.getElementById('loan-term').value) || 30;
+            const propertyTax = parseFloat(document.getElementById('property-tax').value) || 0;
+            const homeInsurance = parseFloat(document.getElementById('home-insurance').value) || 0;
+            const pmi = parseFloat(document.getElementById('pmi').value) || 0;
+
+            const loanAmount = homePrice - downPayment;
+            const monthlyRate = interestRate / 100 / 12;
+            const numPayments = loanTerm * 12;
+
+            // Calculate monthly payment (principal + interest)
+            const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
+                                 (Math.pow(1 + monthlyRate, numPayments) - 1);
+
+            const totalPayment = monthlyPayment + propertyTax + homeInsurance + pmi;
+            const totalPaid = monthlyPayment * numPayments;
+            const totalInterest = totalPaid - loanAmount;
+
+            // Update display
+            document.getElementById('monthly-payment').textContent = '$' + Math.round(monthlyPayment).toLocaleString();
+            document.getElementById('total-payment').textContent = '$' + Math.round(totalPayment).toLocaleString();
+            document.getElementById('loan-amount').textContent = '$' + loanAmount.toLocaleString();
+            document.getElementById('total-interest').textContent = '$' + Math.round(totalInterest).toLocaleString();
+            document.getElementById('total-paid').textContent = '$' + Math.round(totalPaid).toLocaleString();
+
+            // Calculate payoff date
+            const currentDate = new Date();
+            const payoffDate = new Date(currentDate.getFullYear() + loanTerm, currentDate.getMonth());
+            const payoffString = payoffDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+            document.getElementById('payoff-date').textContent = payoffString;
+        }
+
+        // Auto-calculate on input change
+        document.getElementById('calculate-btn').addEventListener('click', calculateMortgage);
+
+        // Update down payment percentage when dollar amount changes
+        document.getElementById('down-payment').addEventListener('input', function() {
+            const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+            const downPayment = parseFloat(this.value) || 0;
+            const percentage = homePrice > 0 ? (downPayment / homePrice * 100).toFixed(1) : 0;
+            document.getElementById('down-payment-percent').value = percentage;
+        });
+
+        // Update down payment dollar amount when percentage changes
+        document.getElementById('down-payment-percent').addEventListener('input', function() {
+            const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+            const percentage = parseFloat(this.value) || 0;
+            const downPayment = Math.round(homePrice * percentage / 100);
+            document.getElementById('down-payment').value = downPayment;
+        });
+
+        // Tooltip functionality
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'absolute bg-secondary-700 text-white text-xs rounded py-1 px-2 z-50 max-w-xs';
+                tooltip.textContent = this.getAttribute('data-tooltip');
+                tooltip.style.top = this.offsetTop + this.offsetHeight + 5 + 'px';
+                tooltip.style.left = this.offsetLeft + 'px';
+                this.parentNode.appendChild(tooltip);
+                this.tooltipElement = tooltip;
+            });
+
+            element.addEventListener('mouseleave', function() {
+                if (this.tooltipElement) {
+                    this.tooltipElement.remove();
+                    this.tooltipElement = null;
+                }
+            });
+        });
+
+        // Initial calculation
+        calculateMortgage();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
