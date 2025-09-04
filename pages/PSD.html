@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator - LifeTools Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Flifetools3578back.builtwithrocket.new&_be=https://application.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="bg-surface shadow-soft sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="12" r="2"/>
+                        <circle cx="12" cy="20" r="2"/>
+                        <circle cx="20" cy="20" r="2"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">Alfrez</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="text-primary font-medium">Popular Tools</a>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-smooth">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="tools_directory.html" class="block px-3 py-2 text-text-secondary">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="block px-3 py-2 text-primary font-medium">Popular Tools</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="bg-secondary-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Security Tools</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-primary font-medium">Password Generator</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Tool Header -->
+    <section class="bg-gradient-to-br from-primary-50 to-accent-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-primary text-white p-4 rounded-2xl mr-4">
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <h1 class="text-3xl md:text-4xl font-bold text-text-primary">Password Generator</h1>
+                        <p class="text-text-secondary mt-2">Create strong, secure, and random passwords to protect your accounts.</p>
+                    </div>
+                </div>
+                
+                <!-- Tool Stats -->
+                <div class="flex justify-center space-x-8 text-sm">
+                    <div class="text-center">
+                        <div class="font-bold text-primary">12M+</div>
+                        <div class="text-text-secondary">Passwords Generated</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-success">4.9/5</div>
+                        <div class="text-text-secondary">User Rating</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-accent">Free</div>
+                        <div class="text-text-secondary">Always</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Generator Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Generator Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-8">
+                        <!-- Result Display -->
+                        <div class="mb-6">
+                             <h2 class="text-2xl font-bold text-text-primary mb-4">Your New Password</h2>
+                             <div class="relative bg-secondary-100 p-4 rounded-lg flex items-center justify-between">
+                                <span id="password-display" class="text-lg md:text-xl font-mono text-text-secondary truncate">Click Generate...</span>
+                                <button id="copy-btn" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-smooth flex items-center">
+                                    <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                             </div>
+                             <!-- Strength Indicator -->
+                             <div class="mt-2">
+                                <div class="w-full bg-secondary-200 rounded-full h-2.5">
+                                  <div id="strength-bar" class="bg-red-500 h-2.5 rounded-full transition-all duration-300" style="width: 10%"></div>
+                                </div>
+                                <span id="strength-text" class="text-xs font-medium text-text-secondary mt-1 block">Weak</span>
+                              </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-text-primary mb-6 mt-8">Password Options</h2>
+                        
+                        <!-- Password Length -->
+                        <div class="mb-6">
+                            <label for="length-slider" class="block text-sm font-medium text-text-primary mb-2">Password Length: <span id="length-display" class="font-bold text-primary">16</span></label>
+                            <input type="range" id="length-slider" min="6" max="32" value="16" class="w-full h-2 bg-secondary-200 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        
+                        <!-- Character Options -->
+                        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                            <div class="flex items-center p-3 bg-secondary-50 rounded-lg">
+                                <input id="include-uppercase" type="checkbox" checked class="h-5 w-5 text-primary rounded border-secondary-300 focus:ring-primary">
+                                <label for="include-uppercase" class="ml-3 text-sm font-medium text-text-primary">Uppercase (A-Z)</label>
+                            </div>
+                            <div class="flex items-center p-3 bg-secondary-50 rounded-lg">
+                                <input id="include-lowercase" type="checkbox" checked class="h-5 w-5 text-primary rounded border-secondary-300 focus:ring-primary">
+                                <label for="include-lowercase" class="ml-3 text-sm font-medium text-text-primary">Lowercase (a-z)</label>
+                            </div>
+                            <div class="flex items-center p-3 bg-secondary-50 rounded-lg">
+                                <input id="include-numbers" type="checkbox" checked class="h-5 w-5 text-primary rounded border-secondary-300 focus:ring-primary">
+                                <label for="include-numbers" class="ml-3 text-sm font-medium text-text-primary">Numbers (0-9)</label>
+                            </div>
+                            <div class="flex items-center p-3 bg-secondary-50 rounded-lg">
+                                <input id="include-symbols" type="checkbox" class="h-5 w-5 text-primary rounded border-secondary-300 focus:ring-primary">
+                                <label for="include-symbols" class="ml-3 text-sm font-medium text-text-primary">Symbols (!@#$)</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Generate Button -->
+                        <div>
+                            <button id="generate-btn" class="w-full bg-primary text-white py-4 rounded-lg font-semibold hover:bg-primary-700 transition-smooth flex items-center justify-center">
+                                <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5V4H4zm0 9h5v5H4v-5zm9-9h5v5h-5V4zm0 9h5v5h-5v-5z" />
+                                </svg>
+                                Generate Password
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Pro Tips -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
+                            <svg class="h-5 w-5 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.664 1.319a.75.75 0 01.672 0 41.059 41.059 0 018.198 5.424.75.75 0 01-.254 1.285 31.372 31.372 0 00-7.86 3.83.75.75 0 01-.84 0 31.508 31.508 0 00-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 013.305-2.033.75.75 0 00-.714-1.319 37 37 0 00-3.446 2.12A2.216 2.216 0 006 9.393v.38a31.293 31.293 0 00-4.28-1.746.75.75 0 01-.254-1.285 41.059 41.059 0 018.198-5.424zM6 11.459a29.848 29.848 0 00-2.455-1.158 41.029 41.029 0 00-.39 3.114.75.75 0 00.419.74c.528.256 1.046.53 1.554.82-.21-.899-.455-1.746-.754-2.491a.75.75 0 00-.374-.025z" clip-rule="evenodd"/>
+                            </svg>
+                            Security Tips
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-success-100 rounded-lg p-4">
+                                <div class="font-medium text-success-600 mb-2">🔑 Use a Password Manager</div>
+                                <p class="text-sm text-text-secondary">Store unique, complex passwords for all your accounts securely in a password manager.</p>
+                            </div>
+                            <div class="bg-primary-100 rounded-lg p-4">
+                                <div class="font-medium text-primary-600 mb-2">📏 Length is Strength</div>
+                                <p class="text-sm text-text-secondary">Longer passwords (16+ characters) are exponentially harder to crack. Prioritize length over complexity.</p>
+                            </div>
+                            <div class="bg-warning-100 rounded-lg p-4">
+                                <div class="font-medium text-warning-600 mb-2">🚫 Avoid Reuse</div>
+                                <p class="text-sm text-text-secondary">Never reuse passwords across different websites. A breach on one site could compromise your others.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Tools -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4">Related Tools</h3>
+                        <div class="space-y-3">
+                             <a href="#" class="flex items-center p-3 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-smooth">
+                                <div class="bg-accent text-white p-2 rounded-lg mr-3">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 18.5a11.954 11.954 0 007.834-13.501l-1.414 1.414A9.954 9.954 0 0110 16.5a9.954 9.954 0 01-5.418-10.086l-1.416-.001z" clip-rule="evenodd" />
+                                        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v5a1 1 0 11-2 0V3a1 1 0 011-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-text-primary">Password Strength Checker</div>
+                                    <div class="text-sm text-text-secondary">Analyze the strength of your password</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">How It Works</h2>
+                <p class="text-text-secondary">Generating a secure password in four simple steps</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Choose Length</h3>
+                    <p class="text-text-secondary text-sm">Use the slider to set your desired password length from 6 to 32 characters.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-success-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-success">2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Select Characters</h3>
+                    <p class="text-text-secondary text-sm">Check the boxes to include uppercase, lowercase, numbers, or symbols.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-accent-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Generate Password</h3>
+                    <p class="text-text-secondary text-sm">Click the "Generate Password" button to create your new, random password.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-secondary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-secondary">4</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Copy & Use</h3>
+                    <p class="text-text-secondary text-sm">Click the copy button and use your new password to secure your accounts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-700 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="12" r="2"/>
+                            <circle cx="12" cy="20" r="2"/>
+                            <circle cx="20" cy="20" r="2"/>
+                        </svg>
+                        <span class="text-xl font-bold">LifeTools Hub</span>
+                    </div>
+                    <p class="text-secondary-300 text-sm">
+                        Your comprehensive digital toolkit for life's calculations and conversions.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="homepage.html" class="text-secondary-300 hover:text-white transition-smooth">Home</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">All Tools</a></li>
+                        <li><a href="individual_tool_pages.html" class="text-secondary-300 hover:text-white transition-smooth">Popular Tools</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Tool Categories -->
+                <div>
+                    <h3 class="font-semibold mb-4">Categories</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Financial</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Health & Fitness</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Conversions</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Productivity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Contact Us</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Privacy Policy</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary-600 mt-8 pt-8 text-center">
+                <p class="text-secondary-300 text-sm">
+                    © 2025 LifeTools Hub. All Rights Reserved. | Made with ❤️ for productivity enthusiasts
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Element references
+            const lengthSlider = document.getElementById('length-slider');
+            const lengthDisplay = document.getElementById('length-display');
+            const includeUppercase = document.getElementById('include-uppercase');
+            const includeLowercase = document.getElementById('include-lowercase');
+            const includeNumbers = document.getElementById('include-numbers');
+            const includeSymbols = document.getElementById('include-symbols');
+            const generateBtn = document.getElementById('generate-btn');
+            const passwordDisplay = document.getElementById('password-display');
+            const copyBtn = document.getElementById('copy-btn');
+            const strengthBar = document.getElementById('strength-bar');
+            const strengthText = document.getElementById('strength-text');
+
+            const charSets = {
+                uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                lowercase: 'abcdefghijklmnopqrstuvwxyz',
+                numbers: '0123456789',
+                symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?'
+            };
+
+            // --- Event Listeners ---
+            lengthSlider.addEventListener('input', () => {
+                lengthDisplay.textContent = lengthSlider.value;
+            });
+
+            generateBtn.addEventListener('click', generatePassword);
+            copyBtn.addEventListener('click', copyToClipboard);
+
+            // --- Functions ---
+            function generatePassword() {
+                const length = parseInt(lengthSlider.value);
+                let characterPool = '';
+                let password = '';
+
+                if (includeUppercase.checked) characterPool += charSets.uppercase;
+                if (includeLowercase.checked) characterPool += charSets.lowercase;
+                if (includeNumbers.checked) characterPool += charSets.numbers;
+                if (includeSymbols.checked) characterPool += charSets.symbols;
+
+                if (characterPool === '') {
+                    alert('Please select at least one character type.');
+                    return;
+                }
+
+                for (let i = 0; i < length; i++) {
+                    const randomIndex = Math.floor(Math.random() * characterPool.length);
+                    password += characterPool[randomIndex];
+                }
+
+                passwordDisplay.textContent = password;
+                passwordDisplay.classList.remove('text-text-secondary');
+                updateStrengthIndicator(password);
+            }
+
+            function copyToClipboard() {
+                const password = passwordDisplay.textContent;
+                if (password && password !== 'Click Generate...') {
+                    navigator.clipboard.writeText(password).then(() => {
+                        const originalText = copyBtn.innerHTML;
+                        copyBtn.innerHTML = `
+                            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Copied!`;
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalText;
+                        }, 2000);
+                    });
+                }
+            }
+            
+            function updateStrengthIndicator(password) {
+                let score = 0;
+                if (password.length >= 8) score++;
+                if (password.length >= 12) score++;
+                if (password.length >= 16) score++;
+                
+                let charTypes = 0;
+                if (/[A-Z]/.test(password)) charTypes++;
+                if (/[a-z]/.test(password)) charTypes++;
+                if (/[0-9]/.test(password)) charTypes++;
+                if (/[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password)) charTypes++;
+                
+                score += charTypes;
+
+                strengthBar.classList.remove('bg-red-500', 'bg-yellow-500', 'bg-green-500');
+                
+                if (score < 3) {
+                    strengthBar.style.width = '25%';
+                    strengthBar.classList.add('bg-red-500');
+                    strengthText.textContent = 'Weak';
+                } else if (score < 5) {
+                    strengthBar.style.width = '50%';
+                    strengthBar.classList.add('bg-yellow-500');
+                    strengthText.textContent = 'Medium';
+                } else if (score < 7) {
+                    strengthBar.style.width = '75%';
+                    strengthBar.classList.add('bg-green-500');
+                    strengthText.textContent = 'Strong';
+                } else {
+                    strengthBar.style.width = '100%';
+                    strengthBar.classList.add('bg-green-500');
+                    strengthText.textContent = 'Very Strong';
+                }
+            }
+
+            // Initial password generation on page load
+            generatePassword();
+        });
+    </script>
+</body>
+</html>
