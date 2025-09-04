@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Planner - LifeTools Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Flifetools3578back.builtwithrocket.new&_be=https://application.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="bg-surface shadow-soft sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="12" r="2"/>
+                        <circle cx="12" cy="20" r="2"/>
+                        <circle cx="20" cy="20" r="2"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">Alfrez</span>
+                </div>
+                 <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="text-primary font-medium">Popular Tools</a>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-smooth">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="tools_directory.html" class="block px-3 py-2 text-text-secondary">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="block px-3 py-2 text-primary font-medium">Popular Tools</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="bg-secondary-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Financial Tools</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-primary font-medium">Budget Planner</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Tool Header -->
+    <section class="bg-gradient-to-br from-primary-50 to-accent-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-primary text-white p-4 rounded-2xl mr-4">
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <h1 class="text-3xl md:text-4xl font-bold text-text-primary">Budget Planner</h1>
+                        <p class="text-text-secondary mt-2">Plan your monthly budget, track expenses, and reach your savings goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Planner Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Inputs & Charts -->
+                <div class="lg:col-span-2">
+                    <div class="bg-surface rounded-2xl shadow-soft p-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Left Side: Inputs -->
+                            <div>
+                                <!-- Income -->
+                                <h3 class="text-xl font-bold text-text-primary mb-4">Monthly Income</h3>
+                                <div class="relative mb-6">
+                                    <label for="income" class="sr-only">Total Monthly Income</label>
+                                    <span class="absolute left-3 top-3 text-text-secondary">$</span>
+                                    <input type="number" id="income" placeholder="3,500" class="w-full pl-8 pr-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                </div>
+
+                                <!-- Savings -->
+                                <h3 class="text-xl font-bold text-text-primary mb-4">Savings Goal</h3>
+                                 <div class="relative mb-6">
+                                    <label for="savings" class="sr-only">Monthly Savings Goal</label>
+                                    <span class="absolute left-3 top-3 text-text-secondary">$</span>
+                                    <input type="number" id="savings" placeholder="500" class="w-full pl-8 pr-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                </div>
+                                
+                                <!-- Expenses -->
+                                <h3 class="text-xl font-bold text-text-primary mb-4">Monthly Expenses</h3>
+                                <div id="expense-list" class="space-y-3">
+                                    <!-- Dynamic expense rows will be inserted here -->
+                                </div>
+                                <button id="add-expense-btn" class="w-full mt-4 bg-secondary-100 text-primary py-2 rounded-lg font-semibold hover:bg-secondary-200 transition-smooth">
+                                    + Add Category
+                                </button>
+                            </div>
+
+                            <!-- Right Side: Visuals -->
+                            <div>
+                                <h3 class="text-xl font-bold text-text-primary mb-4">Breakdown</h3>
+                                <div class="bg-secondary-50 rounded-xl p-4">
+                                    <div class="flex justify-center items-center mb-4">
+                                        <div id="pie-chart" class="w-32 h-32 rounded-full" style="background: conic-gradient(#FDBA74 0% 100%);"></div>
+                                    </div>
+                                    <div id="chart-legend" class="space-y-2 text-sm">
+                                        <!-- Dynamic legend items will be inserted here -->
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-xl font-bold text-text-primary mt-6 mb-4">Summary</h3>
+                                <div class="space-y-3">
+                                    <div class="bg-secondary-50 p-3 rounded-lg">
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span class="font-medium text-text-secondary">Expenses:</span>
+                                            <span id="summary-expenses" class="font-bold text-warning">$0.00</span>
+                                        </div>
+                                    </div>
+                                     <div class="bg-secondary-50 p-3 rounded-lg">
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span class="font-medium text-text-secondary">Savings:</span>
+                                            <span id="summary-savings" class="font-bold text-accent">$0.00</span>
+                                        </div>
+                                    </div>
+                                     <div class="bg-gradient-to-br from-primary-50 to-primary-100 p-4 rounded-xl">
+                                        <div class="flex justify-between font-bold text-lg">
+                                            <span>Remaining:</span>
+                                            <span id="summary-remaining" class="text-success">$0.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Budget Slip Preview -->
+                <div class="lg:col-span-1">
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 font-mono">
+                        <h3 class="text-xl font-bold text-center text-text-primary mb-2">Monthly Budget</h3>
+                        <div class="text-center text-xs text-text-secondary mb-4" id="timestamp"></div>
+                        <div class="border-t-2 border-dashed border-secondary-200 my-2"></div>
+                        
+                        <!-- Income Section -->
+                        <div class="flex justify-between text-sm font-bold">
+                            <span class="text-text-secondary">Income:</span>
+                            <span id="receipt-income">$0.00</span>
+                        </div>
+                        <div class="border-t-2 border-dashed border-secondary-200 my-2"></div>
+
+                        <!-- Expenses Section -->
+                        <div id="receipt-expenses-list" class="space-y-1 text-sm">
+                           <!-- Dynamic expense lines will be inserted here -->
+                        </div>
+                        <div class="border-t border-dashed border-secondary-200 my-2"></div>
+                        <div class="flex justify-between text-sm font-bold">
+                            <span class="text-text-secondary">Total Expenses:</span>
+                            <span id="receipt-total-expenses">$0.00</span>
+                        </div>
+                        <div class="border-t-2 border-dashed border-secondary-200 my-2"></div>
+
+                        <!-- Summary Section -->
+                         <div class="space-y-1 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Savings Goal:</span>
+                                <span id="receipt-savings">$0.00</span>
+                            </div>
+                            <div class="flex justify-between font-bold text-base mt-2">
+                                <span>Balance:</span>
+                                <span id="receipt-balance">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-700 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-secondary-600 pt-8 text-center">
+                <p class="text-secondary-300 text-sm">
+                    © 2025 LifeTools Hub. All Rights Reserved. | Made with ❤️ for productivity enthusiasts
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- UI Elements ---
+            const incomeInput = document.getElementById('income');
+            const savingsInput = document.getElementById('savings');
+            const expenseList = document.getElementById('expense-list');
+            const addExpenseBtn = document.getElementById('add-expense-btn');
+            
+            // --- Summary Elements ---
+            const summaryExpensesEl = document.getElementById('summary-expenses');
+            const summarySavingsEl = document.getElementById('summary-savings');
+            const summaryRemainingEl = document.getElementById('summary-remaining');
+            
+            // --- Receipt Elements ---
+            const timestampEl = document.getElementById('timestamp');
+            const receiptIncomeEl = document.getElementById('receipt-income');
+            const receiptExpensesListEl = document.getElementById('receipt-expenses-list');
+            const receiptTotalExpensesEl = document.getElementById('receipt-total-expenses');
+            const receiptSavingsEl = document.getElementById('receipt-savings');
+            const receiptBalanceEl = document.getElementById('receipt-balance');
+
+            // --- Chart Elements ---
+            const pieChartEl = document.getElementById('pie-chart');
+            const chartLegendEl = document.getElementById('chart-legend');
+
+            const defaultExpenses = ['Housing', 'Utilities', 'Transportation', 'Food & Groceries', 'Entertainment', 'Miscellaneous'];
+            const chartColors = ['#6366F1', '#818CF8', '#A5B4FC', '#C7D2FE', '#34D399', '#6EE7B7', '#A7F3D0', '#FDBA74', '#FCD34D', '#FDE68A'];
+
+            // --- Functions ---
+            const formatCurrency = (value) => {
+                const options = { style: 'currency', currency: 'USD' };
+                // Show cents only if not a round number
+                if (value % 1 !== 0) {
+                    options.minimumFractionDigits = 2;
+                }
+                return value.toLocaleString('en-US', options);
+            };
+
+            const calculateAndRender = () => {
+                const income = parseFloat(incomeInput.value) || 0;
+                const savings = parseFloat(savingsInput.value) || 0;
+                
+                let totalExpenses = 0;
+                const expenses = [];
+                
+                document.querySelectorAll('.expense-row').forEach(row => {
+                    const name = row.querySelector('.expense-name').value || 'Unnamed';
+                    const amount = parseFloat(row.querySelector('.expense-amount').value) || 0;
+                    if (amount > 0) {
+                        totalExpenses += amount;
+                        expenses.push({ name, amount });
+                    }
+                });
+                
+                const remaining = income - totalExpenses - savings;
+
+                // Update UI
+                updateSummary(totalExpenses, savings, remaining);
+                updateReceipt(income, savings, totalExpenses, remaining, expenses);
+                updateCharts(totalExpenses, expenses);
+            };
+
+            const updateSummary = (expenses, savings, remaining) => {
+                summaryExpensesEl.textContent = formatCurrency(expenses);
+                summarySavingsEl.textContent = formatCurrency(savings);
+                summaryRemainingEl.textContent = formatCurrency(remaining);
+                summaryRemainingEl.classList.toggle('text-danger', remaining < 0);
+                summaryRemainingEl.classList.toggle('text-success', remaining >= 0);
+            };
+
+            const updateReceipt = (income, savings, totalExpenses, balance, expenses) => {
+                receiptIncomeEl.textContent = formatCurrency(income);
+                receiptSavingsEl.textContent = formatCurrency(savings);
+                receiptTotalExpensesEl.textContent = formatCurrency(totalExpenses);
+                receiptBalanceEl.textContent = formatCurrency(balance);
+                
+                receiptExpensesListEl.innerHTML = '';
+                if (expenses.length === 0) {
+                    receiptExpensesListEl.innerHTML = '<div>No expenses entered</div>';
+                } else {
+                    expenses.forEach(exp => {
+                        const row = document.createElement('div');
+                        row.className = 'flex justify-between';
+                        row.innerHTML = `
+                            <span>${exp.name}:</span>
+                            <span>${formatCurrency(exp.amount)}</span>
+                        `;
+                        receiptExpensesListEl.appendChild(row);
+                    });
+                }
+            };
+            
+            const updateCharts = (totalExpenses, expenses) => {
+                if (totalExpenses === 0) {
+                    pieChartEl.style.background = '#E5E7EB'; // Gray background if no expenses
+                    chartLegendEl.innerHTML = '<div class="text-text-secondary">No expense data for chart.</div>';
+                    return;
+                }
+
+                let gradient = 'conic-gradient(';
+                let currentPercentage = 0;
+                chartLegendEl.innerHTML = '';
+
+                expenses.forEach((exp, index) => {
+                    const percentage = (exp.amount / totalExpenses) * 100;
+                    const color = chartColors[index % chartColors.length];
+                    
+                    gradient += `${color} ${currentPercentage}% ${currentPercentage + percentage}%`;
+                    if (index < expenses.length - 1) {
+                         gradient += ', ';
+                    }
+                    
+                    currentPercentage += percentage;
+                    
+                    // Update Legend
+                    const legendItem = document.createElement('div');
+                    legendItem.className = 'flex items-center';
+                    legendItem.innerHTML = `
+                        <span class="w-3 h-3 rounded-full mr-2" style="background-color: ${color};"></span>
+                        <span class="flex-1">${exp.name}</span>
+                        <span class="font-semibold">${percentage.toFixed(1)}%</span>
+                    `;
+                    chartLegendEl.appendChild(legendItem);
+                });
+                
+                gradient += ')';
+                pieChartEl.style.background = gradient;
+            };
+
+            const createExpenseRow = (name = '', amount = '') => {
+                const row = document.createElement('div');
+                row.className = 'expense-row grid grid-cols-6 gap-2 items-center';
+                row.innerHTML = `
+                    <input type="text" value="${name}" class="expense-name col-span-3 p-2 border border-secondary-200 rounded-md text-sm" placeholder="Category Name">
+                    <div class="relative col-span-2">
+                        <span class="absolute left-2 top-2 text-text-secondary text-sm">$</span>
+                        <input type="number" value="${amount}" class="expense-amount w-full pl-6 pr-2 py-2 border border-secondary-200 rounded-md text-sm" placeholder="0">
+                    </div>
+                    <button class="remove-expense-btn col-span-1 text-danger hover:text-red-700">
+                        <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    </button>
+                `;
+                expenseList.appendChild(row);
+
+                // Add event listeners for the new row
+                row.querySelector('.expense-amount').addEventListener('input', calculateAndRender);
+                row.querySelector('.expense-name').addEventListener('input', calculateAndRender);
+                row.querySelector('.remove-expense-btn').addEventListener('click', () => {
+                    row.remove();
+                    calculateAndRender();
+                });
+            };
+
+            // --- Event Listeners ---
+            incomeInput.addEventListener('input', calculateAndRender);
+            savingsInput.addEventListener('input', calculateAndRender);
+            addExpenseBtn.addEventListener('click', () => createExpenseRow());
+
+            // --- Initial Setup ---
+            timestampEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+            defaultExpenses.forEach(name => createExpenseRow(name));
+            calculateAndRender();
+        });
+    </script>
+</body>
+</html>
