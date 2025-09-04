@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator - LifeTools Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Flifetools3578back.builtwithrocket.new&_be=https://application.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="bg-surface shadow-soft sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="12" r="2"/>
+                        <circle cx="12" cy="20" r="2"/>
+                        <circle cx="20" cy="20" r="2"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">Alfrez</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="text-primary font-medium">Popular Tools</a>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-smooth">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="tools_directory.html" class="block px-3 py-2 text-text-secondary">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="block px-3 py-2 text-primary font-medium">Popular Tools</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="bg-secondary-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Health & Fitness Tools</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-primary font-medium">BMI Calculator</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Tool Header -->
+    <section class="bg-gradient-to-br from-primary-50 to-accent-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-primary text-white p-4 rounded-2xl mr-4">
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5V4H4zm0 9h5v5H4v-5zm9-9h5v5h-5V4zm0 9h5v5h-5v-5z" />
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <h1 class="text-3xl md:text-4xl font-bold text-text-primary">BMI Calculator</h1>
+                        <p class="text-text-secondary mt-2">Calculate your Body Mass Index to assess your health status.</p>
+                    </div>
+                </div>
+                
+                <!-- Tool Stats -->
+                <div class="flex justify-center space-x-8 text-sm">
+                    <div class="text-center">
+                        <div class="font-bold text-primary">5M+</div>
+                        <div class="text-text-secondary">Calculations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-success">4.8/5</div>
+                        <div class="text-text-secondary">User Rating</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-accent">Free</div>
+                        <div class="text-text-secondary">Always</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Calculator Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Calculator Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-8">
+                        <h2 class="text-2xl font-bold text-text-primary mb-6">Your Measurements</h2>
+                        
+                        <!-- Unit Selector -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Units</label>
+                            <div class="flex rounded-lg border border-secondary-200 p-1" id="unit-selector">
+                                <button id="metric-btn" class="flex-1 py-2 text-sm font-semibold bg-primary text-white rounded-md">Metric (kg, cm)</button>
+                                <button id="imperial-btn" class="flex-1 py-2 text-sm font-semibold text-text-secondary rounded-md">Imperial (lbs, ft, in)</button>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Weight -->
+                            <div>
+                                <label for="weight" class="block text-sm font-medium text-text-primary mb-2">Weight</label>
+                                <div class="relative">
+                                    <input type="number" id="weight" value="70" class="w-full pl-4 pr-12 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                    <span id="weight-unit" class="absolute right-4 top-3 text-text-secondary">kg</span>
+                                </div>
+                            </div>
+
+                            <!-- Height -->
+                            <div>
+                                <label for="height-cm" class="block text-sm font-medium text-text-primary mb-2">Height</label>
+                                <!-- Metric Height Input -->
+                                <div id="metric-height-inputs" class="relative">
+                                    <input type="number" id="height-cm" value="175" class="w-full pl-4 pr-12 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                    <span class="absolute right-4 top-3 text-text-secondary">cm</span>
+                                </div>
+                                <!-- Imperial Height Inputs -->
+                                <div id="imperial-height-inputs" class="flex space-x-2 hidden">
+                                    <div class="relative flex-1">
+                                        <input type="number" id="height-ft" value="5" class="w-full pl-4 pr-12 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                        <span class="absolute right-4 top-3 text-text-secondary">ft</span>
+                                    </div>
+                                    <div class="relative flex-1">
+                                        <input type="number" id="height-in" value="9" class="w-full pl-4 pr-12 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                        <span class="absolute right-4 top-3 text-text-secondary">in</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Calculate Button -->
+                        <div class="mt-8">
+                            <button id="calculate-btn" class="w-full bg-primary text-white py-4 rounded-lg font-semibold hover:bg-primary-700 transition-smooth">
+                                Calculate My BMI
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results Section -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6" id="results-section">
+                        <h2 class="text-2xl font-bold text-text-primary mb-6">Your BMI Result</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 text-center">
+                                <div class="text-sm text-text-secondary mb-2">Your BMI Score</div>
+                                <div class="text-5xl font-bold text-primary mb-2" id="bmi-score">22.9</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-xl p-6 text-center">
+                                <div class="text-sm text-text-secondary mb-2">Category</div>
+                                <div class="text-3xl font-bold text-accent" id="bmi-category">Normal Weight</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Visual BMI Scale -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-text-primary mb-4">BMI Categories</h3>
+                            <div class="w-full bg-secondary-100 rounded-full h-4 relative">
+                                <!-- Categories background -->
+                                <div class="absolute w-full h-full flex rounded-full overflow-hidden">
+                                    <div class="w-1/4 h-full bg-blue-400"></div>
+                                    <div class="w-1/4 h-full bg-green-400"></div>
+                                    <div class="w-1/4 h-full bg-yellow-400"></div>
+                                    <div class="w-1/4 h-full bg-red-400"></div>
+                                </div>
+                                <!-- Indicator -->
+                                <div id="bmi-indicator" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 bg-white rounded-full shadow-md border-2 border-primary"></div>
+                            </div>
+                            <div class="flex justify-between text-xs mt-2 text-text-secondary px-2">
+                                <span>18.5</span>
+                                <span>25</span>
+                                <span>30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Pro Tips -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
+                            <svg class="h-5 w-5 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.664 1.319a.75.75 0 01.672 0 41.059 41.059 0 018.198 5.424.75.75 0 01-.254 1.285 31.372 31.372 0 00-7.86 3.83.75.75 0 01-.84 0 31.508 31.508 0 00-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 013.305-2.033.75.75 0 00-.714-1.319 37 37 0 00-3.446 2.12A2.216 2.216 0 006 9.393v.38a31.293 31.293 0 00-4.28-1.746.75.75 0 01-.254-1.285 41.059 41.059 0 018.198-5.424zM6 11.459a29.848 29.848 0 00-2.455-1.158 41.029 41.029 0 00-.39 3.114.75.75 0 00.419.74c.528.256 1.046.53 1.554.82-.21-.899-.455-1.746-.754-2.491a.75.75 0 00-.374-.025z" clip-rule="evenodd"/>
+                            </svg>
+                            Health Tips
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-success-100 rounded-lg p-4">
+                                <div class="font-medium text-success-600 mb-2">🥗 Balanced Diet</div>
+                                <p class="text-sm text-text-secondary">Incorporate a mix of fruits, vegetables, lean proteins, and whole grains into your diet.</p>
+                            </div>
+                            <div class="bg-primary-100 rounded-lg p-4">
+                                <div class="font-medium text-primary-600 mb-2">🏃‍♀️ Regular Exercise</div>
+                                <p class="text-sm text-text-secondary">Aim for at least 30 minutes of moderate activity most days of the week.</p>
+                            </div>
+                            <div class="bg-warning-100 rounded-lg p-4">
+                                <div class="font-medium text-warning-600 mb-2">💧 Stay Hydrated</div>
+                                <p class="text-sm text-text-secondary">Drinking plenty of water can help with metabolism and overall health.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Tools -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4">Related Tools</h3>
+                        <div class="space-y-3">
+                             <a href="#" class="flex items-center p-3 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-smooth">
+                                <div class="bg-accent text-white p-2 rounded-lg mr-3">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 8a2 2 0 114 0 2 2 0 01-4 0zM8 12a2 2 0 104 0 2 2 0 00-4 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-text-primary">Calorie Calculator</div>
+                                    <div class="text-sm text-text-secondary">Estimate your daily calorie needs</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center p-3 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-smooth">
+                                <div class="bg-success text-white p-2 rounded-lg mr-3">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M9 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-4V3a1 1 0 00-1-1H9zM4 6h12v10H4V6zm4 2a.5.5 0 00-.5.5v3a.5.5 0 001 0v-3A.5.5 0 008 8zm4 0a.5.5 0 00-.5.5v3a.5.5 0 001 0v-3a.5.5 0 00-.5-.5z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-text-primary">Body Fat Calculator</div>
+                                    <div class="text-sm text-text-secondary">Estimate your body fat percentage</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">How It Works</h2>
+                <p class="text-text-secondary">Understanding your Body Mass Index (BMI)</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Select Units</h3>
+                    <p class="text-text-secondary text-sm">Choose between Metric (kg, cm) or Imperial (lbs, ft, in) units.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-success-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-success">2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Enter Measurements</h3>
+                    <p class="text-text-secondary text-sm">Input your current weight and height into the designated fields.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-accent-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Get Your BMI</h3>
+                    <p class="text-text-secondary text-sm">View your calculated BMI score and see which category you fall into.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-secondary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-secondary">4</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Understand Results</h3>
+                    <p class="text-text-secondary text-sm">Use the result as a starting point to discuss your health with a professional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-700 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-secondary-600 mt-8 pt-8 text-center">
+                <p class="text-secondary-300 text-sm">
+                    © 2025 LifeTools Hub. All Rights Reserved. | Made with ❤️ for productivity enthusiasts
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Element references
+            const calculateBtn = document.getElementById('calculate-btn');
+            const metricBtn = document.getElementById('metric-btn');
+            const imperialBtn = document.getElementById('imperial-btn');
+            
+            const weightInput = document.getElementById('weight');
+            const weightUnit = document.getElementById('weight-unit');
+            
+            const metricHeight = document.getElementById('metric-height-inputs');
+            const imperialHeight = document.getElementById('imperial-height-inputs');
+            const heightCmInput = document.getElementById('height-cm');
+            const heightFtInput = document.getElementById('height-ft');
+            const heightInInput = document.getElementById('height-in');
+            
+            const bmiScoreEl = document.getElementById('bmi-score');
+            const bmiCategoryEl = document.getElementById('bmi-category');
+            const bmiIndicator = document.getElementById('bmi-indicator');
+
+            let currentUnit = 'metric'; // 'metric' or 'imperial'
+
+            // --- Event Listeners ---
+            metricBtn.addEventListener('click', () => switchUnit('metric'));
+            imperialBtn.addEventListener('click', () => switchUnit('imperial'));
+            calculateBtn.addEventListener('click', calculateAndDisplayBMI);
+
+            // --- Functions ---
+            function switchUnit(unit) {
+                currentUnit = unit;
+                if (unit === 'metric') {
+                    // Switch to metric
+                    metricBtn.classList.add('bg-primary', 'text-white');
+                    metricBtn.classList.remove('text-text-secondary');
+                    imperialBtn.classList.remove('bg-primary', 'text-white');
+                    imperialBtn.classList.add('text-text-secondary');
+
+                    metricHeight.classList.remove('hidden');
+                    imperialHeight.classList.add('hidden');
+                    weightUnit.textContent = 'kg';
+                } else {
+                    // Switch to imperial
+                    imperialBtn.classList.add('bg-primary', 'text-white');
+                    imperialBtn.classList.remove('text-text-secondary');
+                    metricBtn.classList.remove('bg-primary', 'text-white');
+                    metricBtn.classList.add('text-text-secondary');
+                    
+                    imperialHeight.classList.remove('hidden');
+                    metricHeight.classList.add('hidden');
+                    weightUnit.textContent = 'lbs';
+                }
+            }
+            
+            function calculateAndDisplayBMI() {
+                let weight, heightCm;
+
+                if (currentUnit === 'metric') {
+                    weight = parseFloat(weightInput.value);
+                    heightCm = parseFloat(heightCmInput.value);
+                } else {
+                    // Convert imperial to metric for calculation
+                    const weightLbs = parseFloat(weightInput.value);
+                    const heightFt = parseFloat(heightFtInput.value) || 0;
+                    const heightIn = parseFloat(heightInInput.value) || 0;
+                    
+                    weight = weightLbs * 0.453592; // lbs to kg
+                    const totalInches = (heightFt * 12) + heightIn;
+                    heightCm = totalInches * 2.54; // inches to cm
+                }
+
+                if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+                    alert('Please enter valid positive numbers for weight and height.');
+                    return;
+                }
+
+                const heightM = heightCm / 100;
+                const bmi = weight / (heightM * heightM);
+
+                updateResults(bmi);
+            }
+
+            function updateResults(bmi) {
+                bmiScoreEl.textContent = bmi.toFixed(1);
+                
+                let category, indicatorPosition;
+                
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                    indicatorPosition = (bmi / 18.5) * 25; // Scale within the first 25%
+                } else if (bmi >= 18.5 && bmi < 25) {
+                    category = 'Normal Weight';
+                    indicatorPosition = 25 + ((bmi - 18.5) / (25 - 18.5)) * 25; // Scale within the second 25%
+                } else if (bmi >= 25 && bmi < 30) {
+                    category = 'Overweight';
+                     indicatorPosition = 50 + ((bmi - 25) / (30 - 25)) * 25; // Scale within the third 25%
+                } else {
+                    category = 'Obesity';
+                    indicatorPosition = 75 + ((bmi - 30) / (40 - 30)) * 25; // Scale within the last 25% (cap at 40 for visual)
+                }
+
+                bmiCategoryEl.textContent = category;
+                
+                // Cap position at 100%
+                indicatorPosition = Math.min(Math.max(indicatorPosition, 2), 98); 
+                
+                bmiIndicator.style.left = `${indicatorPosition}%`;
+            }
+
+            // Initial calculation on page load
+            calculateAndDisplayBMI();
+        });
+    </script>
+</body>
+</html>
