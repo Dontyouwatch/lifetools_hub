@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter - LifeTools Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Flifetools3578back.builtwithrocket.new&_be=https://application.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="bg-surface shadow-soft sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="12" r="2"/>
+                        <circle cx="12" cy="20" r="2"/>
+                        <circle cx="20" cy="20" r="2"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">Alfrez</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="text-primary font-medium">Popular Tools</a>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-smooth">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="tools_directory.html" class="block px-3 py-2 text-text-secondary">Tools Directory</a>
+                    <a href="individual_tool_pages.html" class="block px-3 py-2 text-primary font-medium">Popular Tools</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="bg-secondary-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <a href="tools_directory.html" class="text-text-secondary hover:text-primary transition-smooth">Conversion Tools</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-primary font-medium">Unit Converter</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Tool Header -->
+    <section class="bg-gradient-to-br from-primary-50 to-accent-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-primary text-white p-4 rounded-2xl mr-4">
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <h1 class="text-3xl md:text-4xl font-bold text-text-primary">Unit Converter</h1>
+                        <p class="text-text-secondary mt-2">Convert between different units of measurement including length, weight, temperature, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Converter Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Converter Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-8">
+                        <h2 class="text-2xl font-bold text-text-primary mb-6">Start Converting</h2>
+                        
+                        <!-- Category Selector -->
+                        <div class="mb-6">
+                            <label for="category-select" class="block text-sm font-medium text-text-primary mb-2">Conversion Type</label>
+                            <select id="category-select" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 items-center">
+                            <!-- From Unit -->
+                            <div>
+                                <label for="from-value" class="block text-sm font-medium text-text-primary mb-2">From</label>
+                                <input type="number" id="from-value" value="1" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
+                                <select id="from-unit-select" class="w-full mt-2 px-4 py-2 border border-secondary-200 bg-secondary-50 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
+                            </div>
+                            
+                            <!-- To Unit -->
+                            <div>
+                                <label for="to-value" class="block text-sm font-medium text-text-primary mb-2">To</label>
+                                <input type="number" id="to-value" readonly class="w-full px-4 py-3 border border-secondary-200 rounded-lg bg-secondary-100 focus:outline-none transition-smooth" />
+                                <select id="to-unit-select" class="w-full mt-2 px-4 py-2 border border-secondary-200 bg-secondary-50 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Pro Tips -->
+                    <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
+                            <svg class="h-5 w-5 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.664 1.319a.75.75 0 01.672 0 41.059 41.059 0 018.198 5.424.75.75 0 01-.254 1.285 31.372 31.372 0 00-7.86 3.83.75.75 0 01-.84 0 31.508 31.508 0 00-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 013.305-2.033.75.75 0 00-.714-1.319 37 37 0 00-3.446 2.12A2.216 2.216 0 006 9.393v.38a31.293 31.293 0 00-4.28-1.746.75.75 0 01-.254-1.285 41.059 41.059 0 018.198-5.424zM6 11.459a29.848 29.848 0 00-2.455-1.158 41.029 41.029 0 00-.39 3.114.75.75 0 00.419.74c.528.256 1.046.53 1.554.82-.21-.899-.455-1.746-.754-2.491a.75.75 0 00-.374-.025z" clip-rule="evenodd"/>
+                            </svg>
+                            Conversion Tips
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-success-100 rounded-lg p-4">
+                                <div class="font-medium text-success-600 mb-2">🎯 Precision Matters</div>
+                                <p class="text-sm text-text-secondary">For scientific calculations, ensure you're using the correct number of significant figures.</p>
+                            </div>
+                            <div class="bg-primary-100 rounded-lg p-4">
+                                <div class="font-medium text-primary-600 mb-2">🌍 Know Your System</div>
+                                <p class="text-sm text-text-secondary">Be aware of the difference between Imperial (US) and Metric systems, especially for gallons and tons.</p>
+                            </div>
+                            <div class="bg-warning-100 rounded-lg p-4">
+                                <div class="font-medium text-warning-600 mb-2">🌡️ Temperature Quirks</div>
+                                <p class="text-sm text-text-secondary">Converting temperature isn't a simple multiplication; it involves different zero points.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">How It Works</h2>
+                <p class="text-text-secondary">Instant unit conversions in four easy steps</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Select Category</h3>
+                    <p class="text-text-secondary text-sm">Choose the type of measurement you want to convert, like Length or Weight.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-success-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-success">2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Choose Units</h3>
+                    <p class="text-text-secondary text-sm">Select the 'From' and 'To' units you wish to convert between.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-accent-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Enter Value</h3>
+                    <p class="text-text-secondary text-sm">Type the numerical value you want to convert into the 'From' field.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-secondary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-secondary">4</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Get Result</h3>
+                    <p class="text-text-secondary text-sm">The converted value appears instantly in the 'To' field. No extra clicks needed!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-700 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="12" r="2"/>
+                            <circle cx="12" cy="20" r="2"/>
+                            <circle cx="20" cy="20" r="2"/>
+                        </svg>
+                        <span class="text-xl font-bold">LifeTools Hub</span>
+                    </div>
+                    <p class="text-secondary-300 text-sm">
+                        Your comprehensive digital toolkit for life's calculations and conversions.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="homepage.html" class="text-secondary-300 hover:text-white transition-smooth">Home</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">All Tools</a></li>
+                        <li><a href="individual_tool_pages.html" class="text-secondary-300 hover:text-white transition-smooth">Popular Tools</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Tool Categories -->
+                <div>
+                    <h3 class="font-semibold mb-4">Categories</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Financial</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Health & Fitness</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Conversions</a></li>
+                        <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Productivity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Contact Us</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Privacy Policy</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary-600 mt-8 pt-8 text-center">
+                <p class="text-secondary-300 text-sm">
+                    © 2025 LifeTools Hub. All Rights Reserved. | Made with ❤️ for productivity enthusiasts
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- DATA STRUCTURE FOR CONVERSIONS ---
+            const conversions = {
+                length: {
+                    name: 'Length',
+                    base: 'meter',
+                    units: {
+                        meter: { name: 'Meter (m)', factor: 1 },
+                        kilometer: { name: 'Kilometer (km)', factor: 1000 },
+                        centimeter: { name: 'Centimeter (cm)', factor: 0.01 },
+                        millimeter: { name: 'Millimeter (mm)', factor: 0.001 },
+                        mile: { name: 'Mile (mi)', factor: 1609.34 },
+                        yard: { name: 'Yard (yd)', factor: 0.9144 },
+                        foot: { name: 'Foot (ft)', factor: 0.3048 },
+                        inch: { name: 'Inch (in)', factor: 0.0254 }
+                    }
+                },
+                weight: {
+                    name: 'Weight',
+                    base: 'kilogram',
+                    units: {
+                        kilogram: { name: 'Kilogram (kg)', factor: 1 },
+                        gram: { name: 'Gram (g)', factor: 0.001 },
+                        milligram: { name: 'Milligram (mg)', factor: 1e-6 },
+                        pound: { name: 'Pound (lb)', factor: 0.453592 },
+                        ounce: { name: 'Ounce (oz)', factor: 0.0283495 }
+                    }
+                },
+                temperature: {
+                    name: 'Temperature',
+                    units: {
+                        celsius: { name: 'Celsius (°C)' },
+                        fahrenheit: { name: 'Fahrenheit (°F)' },
+                        kelvin: { name: 'Kelvin (K)' }
+                    },
+                    // Special conversion logic for temperature
+                    convert: function(value, from, to) {
+                        if (from === to) return value;
+                        let celsiusValue;
+                        // First, convert from input unit to Celsius
+                        switch (from) {
+                            case 'fahrenheit':
+                                celsiusValue = (value - 32) * 5 / 9;
+                                break;
+                            case 'kelvin':
+                                celsiusValue = value - 273.15;
+                                break;
+                            default: // from is already celsius
+                                celsiusValue = value;
+                        }
+                        // Then, convert from Celsius to the target unit
+                        switch (to) {
+                            case 'fahrenheit':
+                                return (celsiusValue * 9 / 5) + 32;
+                            case 'kelvin':
+                                return celsiusValue + 273.15;
+                            default: // to is celsius
+                                return celsiusValue;
+                        }
+                    }
+                }
+            };
+
+            // --- ELEMENT REFERENCES ---
+            const categorySelect = document.getElementById('category-select');
+            const fromValueInput = document.getElementById('from-value');
+            const toValueInput = document.getElementById('to-value');
+            const fromUnitSelect = document.getElementById('from-unit-select');
+            const toUnitSelect = document.getElementById('to-unit-select');
+            
+            // --- FUNCTIONS ---
+            
+            function populateCategories() {
+                for (const key in conversions) {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = conversions[key].name;
+                    categorySelect.appendChild(option);
+                }
+            }
+            
+            function populateUnits() {
+                const category = categorySelect.value;
+                const { units } = conversions[category];
+                
+                fromUnitSelect.innerHTML = '';
+                toUnitSelect.innerHTML = '';
+                
+                for (const key in units) {
+                    const option1 = document.createElement('option');
+                    option1.value = key;
+                    option1.textContent = units[key].name;
+                    fromUnitSelect.appendChild(option1);
+                    
+                    const option2 = document.createElement('option');
+                    option2.value = key;
+                    option2.textContent = units[key].name;
+                    toUnitSelect.appendChild(option2);
+                }
+                
+                // Set default different units
+                if (Object.keys(units).length > 1) {
+                   toUnitSelect.selectedIndex = 1;
+                }
+                
+                convert();
+            }
+            
+            function convert() {
+                const category = categorySelect.value;
+                const fromValue = parseFloat(fromValueInput.value);
+                const fromUnit = fromUnitSelect.value;
+                const toUnit = toUnitSelect.value;
+
+                if (isNaN(fromValue)) {
+                    toValueInput.value = '';
+                    return;
+                }
+
+                let result;
+                const convData = conversions[category];
+
+                if (convData.convert) { // Use special conversion logic if it exists
+                    result = convData.convert(fromValue, fromUnit, toUnit);
+                } else { // Use standard base factor conversion
+                    const fromFactor = convData.units[fromUnit].factor;
+                    const toFactor = convData.units[toUnit].factor;
+                    const baseValue = fromValue * fromFactor;
+                    result = baseValue / toFactor;
+                }
+                
+                // Format result to a reasonable number of decimal places
+                toValueInput.value = parseFloat(result.toFixed(6));
+            }
+
+            // --- EVENT LISTENERS ---
+            categorySelect.addEventListener('change', populateUnits);
+            fromValueInput.addEventListener('input', convert);
+            fromUnitSelect.addEventListener('change', convert);
+            toUnitSelect.addEventListener('change', convert);
+            
+            // --- INITIALIZATION ---
+            populateCategories();
+            populateUnits();
+        });
+    </script>
+</body>
+</html>
