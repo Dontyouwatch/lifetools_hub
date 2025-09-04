@@ -83,7 +83,23 @@
                     </div>
                     <div class="text-left">
                         <h1 class="text-3xl md:text-4xl font-bold text-text-primary">Unit Converter</h1>
-                        <p class="text-text-secondary mt-2">Convert between different units of measurement including length, weight, temperature, and more.</p>
+                        <p class="text-text-secondary mt-2">Convert between hundreds of units across 15+ categories instantly.</p>
+                    </div>
+                </div>
+                
+                <!-- Tool Stats -->
+                <div class="flex justify-center space-x-8 text-sm">
+                    <div class="text-center">
+                        <div class="font-bold text-primary">15+</div>
+                        <div class="text-text-secondary">Categories</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-success">100+</div>
+                        <div class="text-text-secondary">Units Supported</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-accent">Free</div>
+                        <div class="text-text-secondary">Always</div>
                     </div>
                 </div>
             </div>
@@ -97,27 +113,46 @@
                 <!-- Converter Form -->
                 <div class="lg:col-span-2">
                     <div class="bg-surface rounded-2xl shadow-soft p-6 mb-8">
-                        <h2 class="text-2xl font-bold text-text-primary mb-6">Start Converting</h2>
+                        <h2 class="text-2xl font-bold text-text-primary mb-6">Converter</h2>
                         
                         <!-- Category Selector -->
                         <div class="mb-6">
                             <label for="category-select" class="block text-sm font-medium text-text-primary mb-2">Conversion Type</label>
                             <select id="category-select" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
                         </div>
-
-                        <div class="grid md:grid-cols-2 gap-6 items-center">
-                            <!-- From Unit -->
-                            <div>
-                                <label for="from-value" class="block text-sm font-medium text-text-primary mb-2">From</label>
-                                <input type="number" id="from-value" value="1" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
-                                <select id="from-unit-select" class="w-full mt-2 px-4 py-2 border border-secondary-200 bg-secondary-50 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
+                        
+                        <!-- Input and Unit Selectors -->
+                        <div class="grid md:grid-cols-5 gap-4 items-end">
+                            <!-- Input Value -->
+                            <div class="md:col-span-2">
+                                <label for="input-value" class="block text-sm font-medium text-text-primary mb-2">From</label>
+                                <input type="number" id="input-value" value="1" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth" />
                             </div>
-                            
+                            <!-- From Unit -->
+                            <div class="md:col-span-3">
+                                <select id="from-unit-select" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
+                            </div>
+                        </div>
+
+                        <!-- Separator -->
+                        <div class="my-4 flex items-center justify-center">
+                            <div class="border-t border-secondary-200 flex-grow"></div>
+                            <svg class="h-6 w-6 text-primary mx-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                            </svg>
+                            <div class="border-t border-secondary-200 flex-grow"></div>
+                        </div>
+
+                        <!-- Output and Unit Selector -->
+                        <div class="grid md:grid-cols-5 gap-4 items-end">
+                             <!-- Output Value -->
+                             <div class="md:col-span-2">
+                                <label for="output-value" class="block text-sm font-medium text-text-primary mb-2">To</label>
+                                <input type="text" id="output-value" readonly class="w-full px-4 py-3 border border-secondary-200 rounded-lg bg-secondary-50 cursor-not-allowed" />
+                            </div>
                             <!-- To Unit -->
-                            <div>
-                                <label for="to-value" class="block text-sm font-medium text-text-primary mb-2">To</label>
-                                <input type="number" id="to-value" readonly class="w-full px-4 py-3 border border-secondary-200 rounded-lg bg-secondary-100 focus:outline-none transition-smooth" />
-                                <select id="to-unit-select" class="w-full mt-2 px-4 py-2 border border-secondary-200 bg-secondary-50 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
+                            <div class="md:col-span-3">
+                                <select id="to-unit-select" class="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:border-primary focus:outline-none transition-smooth"></select>
                             </div>
                         </div>
                     </div>
@@ -125,7 +160,6 @@
                 
                 <!-- Sidebar -->
                 <div class="lg:col-span-1">
-                    <!-- Pro Tips -->
                     <div class="bg-surface rounded-2xl shadow-soft p-6 mb-6">
                         <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
                             <svg class="h-5 w-5 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -135,16 +169,16 @@
                         </h3>
                         <div class="space-y-4">
                             <div class="bg-success-100 rounded-lg p-4">
-                                <div class="font-medium text-success-600 mb-2">🎯 Precision Matters</div>
-                                <p class="text-sm text-text-secondary">For scientific calculations, ensure you're using the correct number of significant figures.</p>
+                                <div class="font-medium text-success-600 mb-2">🌡️ Temperature Quirks</div>
+                                <p class="text-sm text-text-secondary">Temperature doesn't scale from zero (except Kelvin), so it uses a different conversion formula.</p>
                             </div>
                             <div class="bg-primary-100 rounded-lg p-4">
-                                <div class="font-medium text-primary-600 mb-2">🌍 Know Your System</div>
-                                <p class="text-sm text-text-secondary">Be aware of the difference between Imperial (US) and Metric systems, especially for gallons and tons.</p>
+                                <div class="font-medium text-primary-600 mb-2">💾 Data Storage</div>
+                                <p class="text-sm text-text-secondary">Conversions are typically base-1024 (1 KB = 1024 Bytes), not base-1000.</p>
                             </div>
                             <div class="bg-warning-100 rounded-lg p-4">
-                                <div class="font-medium text-warning-600 mb-2">🌡️ Temperature Quirks</div>
-                                <p class="text-sm text-text-secondary">Converting temperature isn't a simple multiplication; it involves different zero points.</p>
+                                <div class="font-medium text-warning-600 mb-2">🇬🇧 US vs. UK Units</div>
+                                <p class="text-sm text-text-secondary">Be mindful of regional differences in units like gallons and pints. This tool uses US standards.</p>
                             </div>
                         </div>
                     </div>
@@ -158,40 +192,36 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-text-primary mb-4">How It Works</h2>
-                <p class="text-text-secondary">Instant unit conversions in four easy steps</p>
+                <p class="text-text-secondary">Effortless unit conversions in a few clicks</p>
             </div>
-            
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="text-center">
                     <div class="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-bold text-primary">1</span>
                     </div>
                     <h3 class="text-lg font-semibold text-text-primary mb-2">Select Category</h3>
-                    <p class="text-text-secondary text-sm">Choose the type of measurement you want to convert, like Length or Weight.</p>
+                    <p class="text-text-secondary text-sm">Choose the type of measurement you want to convert, like Length or Temperature.</p>
                 </div>
-                
                 <div class="text-center">
                     <div class="bg-success-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-bold text-success">2</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-text-primary mb-2">Choose Units</h3>
-                    <p class="text-text-secondary text-sm">Select the 'From' and 'To' units you wish to convert between.</p>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Enter Your Value</h3>
+                    <p class="text-text-secondary text-sm">Type the number you want to convert into the "From" field.</p>
                 </div>
-                
                 <div class="text-center">
                     <div class="bg-accent-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-bold text-accent">3</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-text-primary mb-2">Enter Value</h3>
-                    <p class="text-text-secondary text-sm">Type the numerical value you want to convert into the 'From' field.</p>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Choose Units</h3>
+                    <p class="text-text-secondary text-sm">Select your starting unit and the unit you want to convert to.</p>
                 </div>
-                
                 <div class="text-center">
                     <div class="bg-secondary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-bold text-secondary">4</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-text-primary mb-2">Get Result</h3>
-                    <p class="text-text-secondary text-sm">The converted value appears instantly in the 'To' field. No extra clicks needed!</p>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Get Instant Result</h3>
+                    <p class="text-text-secondary text-sm">The converted value appears instantly in the "To" field, no extra clicks needed.</p>
                 </div>
             </div>
         </div>
@@ -216,7 +246,6 @@
                         Your comprehensive digital toolkit for life's calculations and conversions.
                     </p>
                 </div>
-                
                 <!-- Quick Links -->
                 <div>
                     <h3 class="font-semibold mb-4">Quick Links</h3>
@@ -227,7 +256,6 @@
                         <li><a href="#" class="text-secondary-300 hover:text-white transition-smooth">About Us</a></li>
                     </ul>
                 </div>
-                
                 <!-- Tool Categories -->
                 <div>
                     <h3 class="font-semibold mb-4">Categories</h3>
@@ -238,7 +266,6 @@
                         <li><a href="tools_directory.html" class="text-secondary-300 hover:text-white transition-smooth">Productivity</a></li>
                     </ul>
                 </div>
-                
                 <!-- Support -->
                 <div>
                     <h3 class="font-semibold mb-4">Support</h3>
@@ -250,7 +277,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="border-t border-secondary-600 mt-8 pt-8 text-center">
                 <p class="text-secondary-300 text-sm">
                     © 2025 LifeTools Hub. All Rights Reserved. | Made with ❤️ for productivity enthusiasts
@@ -262,147 +288,149 @@
     <!-- JavaScript for Interactive Features -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- DATA STRUCTURE FOR CONVERSIONS ---
-            const conversions = {
-                length: {
-                    name: 'Length',
+            const conversionData = {
+                'Length': {
                     base: 'meter',
                     units: {
-                        meter: { name: 'Meter (m)', factor: 1 },
-                        kilometer: { name: 'Kilometer (km)', factor: 1000 },
-                        centimeter: { name: 'Centimeter (cm)', factor: 0.01 },
-                        millimeter: { name: 'Millimeter (mm)', factor: 0.001 },
-                        mile: { name: 'Mile (mi)', factor: 1609.34 },
-                        yard: { name: 'Yard (yd)', factor: 0.9144 },
-                        foot: { name: 'Foot (ft)', factor: 0.3048 },
-                        inch: { name: 'Inch (in)', factor: 0.0254 }
+                        'meter': 1, 'kilometer': 1000, 'centimeter': 0.01, 'millimeter': 0.001,
+                        'mile': 1609.34, 'yard': 0.9144, 'foot': 0.3048, 'inch': 0.0254
                     }
                 },
-                weight: {
-                    name: 'Weight',
+                'Weight / Mass': {
                     base: 'kilogram',
                     units: {
-                        kilogram: { name: 'Kilogram (kg)', factor: 1 },
-                        gram: { name: 'Gram (g)', factor: 0.001 },
-                        milligram: { name: 'Milligram (mg)', factor: 1e-6 },
-                        pound: { name: 'Pound (lb)', factor: 0.453592 },
-                        ounce: { name: 'Ounce (oz)', factor: 0.0283495 }
+                        'kilogram': 1, 'gram': 0.001, 'milligram': 1e-6, 'pound': 0.453592, 'ounce': 0.0283495
                     }
                 },
-                temperature: {
-                    name: 'Temperature',
-                    units: {
-                        celsius: { name: 'Celsius (°C)' },
-                        fahrenheit: { name: 'Fahrenheit (°F)' },
-                        kelvin: { name: 'Kelvin (K)' }
-                    },
-                    // Special conversion logic for temperature
-                    convert: function(value, from, to) {
+                'Temperature': {
+                    custom: (value, from, to) => {
                         if (from === to) return value;
-                        let celsiusValue;
-                        // First, convert from input unit to Celsius
-                        switch (from) {
-                            case 'fahrenheit':
-                                celsiusValue = (value - 32) * 5 / 9;
-                                break;
-                            case 'kelvin':
-                                celsiusValue = value - 273.15;
-                                break;
-                            default: // from is already celsius
-                                celsiusValue = value;
-                        }
-                        // Then, convert from Celsius to the target unit
-                        switch (to) {
-                            case 'fahrenheit':
-                                return (celsiusValue * 9 / 5) + 32;
-                            case 'kelvin':
-                                return celsiusValue + 273.15;
-                            default: // to is celsius
-                                return celsiusValue;
-                        }
+                        // To Celsius
+                        let celsius;
+                        if (from === 'fahrenheit') celsius = (value - 32) * 5 / 9;
+                        else if (from === 'kelvin') celsius = value - 273.15;
+                        else celsius = value;
+                        // From Celsius
+                        if (to === 'fahrenheit') return (celsius * 9 / 5) + 32;
+                        if (to === 'kelvin') return celsius + 273.15;
+                        return celsius;
+                    },
+                    units: { 'celsius': 1, 'fahrenheit': 1, 'kelvin': 1 }
+                },
+                'Volume': {
+                    base: 'liter',
+                    units: {
+                        'liter': 1, 'milliliter': 0.001, 'gallon': 3.78541, 'quart': 0.946353, 'pint': 0.473176, 'fluid ounce': 0.0295735
                     }
+                },
+                'Area': {
+                    base: 'square meter',
+                    units: {
+                        'square meter': 1, 'square kilometer': 1e6, 'square foot': 0.092903, 'square inch': 0.00064516, 'acre': 4046.86, 'hectare': 10000
+                    }
+                },
+                'Speed': {
+                    base: 'meters per second',
+                    units: {
+                        'meters per second': 1, 'kilometers per hour': 0.277778, 'miles per hour': 0.44704, 'knots': 0.514444
+                    }
+                },
+                 'Time': {
+                    base: 'second',
+                    units: {
+                        'second': 1, 'minute': 60, 'hour': 3600, 'day': 86400, 'week': 604800, 'month': 2.628e+6, 'year': 3.154e+7
+                    }
+                },
+                'Data Storage': {
+                    base: 'byte',
+                    units: {
+                       'bit': 0.125, 'byte': 1, 'kilobyte': 1024, 'megabyte': Math.pow(1024, 2), 'gigabyte': Math.pow(1024, 3), 'terabyte': Math.pow(1024, 4)
+                    }
+                },
+                'Energy': {
+                    base: 'joule',
+                    units: {
+                        'joule': 1, 'kilojoule': 1000, 'calorie': 4.184, 'kilocalorie': 4184, 'kilowatt-hour': 3.6e+6, 'British thermal unit': 1055.06
+                    }
+                },
+                'Power': {
+                    base: 'watt',
+                    units: { 'watt': 1, 'kilowatt': 1000, 'horsepower': 745.7 }
+                },
+                'Pressure': {
+                    base: 'pascal',
+                    units: { 'pascal': 1, 'bar': 100000, 'atmosphere': 101325, 'pounds per square inch': 6894.76}
+                },
+                'Angle': {
+                    base: 'radian',
+                    units: { 'degree': Math.PI / 180, 'radian': 1, 'gradian': Math.PI / 200 }
                 }
             };
 
-            // --- ELEMENT REFERENCES ---
             const categorySelect = document.getElementById('category-select');
-            const fromValueInput = document.getElementById('from-value');
-            const toValueInput = document.getElementById('to-value');
             const fromUnitSelect = document.getElementById('from-unit-select');
             const toUnitSelect = document.getElementById('to-unit-select');
-            
-            // --- FUNCTIONS ---
-            
+            const inputValue = document.getElementById('input-value');
+            const outputValue = document.getElementById('output-value');
+
             function populateCategories() {
-                for (const key in conversions) {
+                for (const category in conversionData) {
                     const option = document.createElement('option');
-                    option.value = key;
-                    option.textContent = conversions[key].name;
+                    option.value = category;
+                    option.textContent = category;
                     categorySelect.appendChild(option);
                 }
             }
-            
+
             function populateUnits() {
-                const category = categorySelect.value;
-                const { units } = conversions[category];
-                
+                const category = conversionData[categorySelect.value];
                 fromUnitSelect.innerHTML = '';
                 toUnitSelect.innerHTML = '';
-                
-                for (const key in units) {
-                    const option1 = document.createElement('option');
-                    option1.value = key;
-                    option1.textContent = units[key].name;
-                    fromUnitSelect.appendChild(option1);
+                for (const unit in category.units) {
+                    const fromOption = document.createElement('option');
+                    fromOption.value = unit;
+                    fromOption.textContent = unit.charAt(0).toUpperCase() + unit.slice(1);
+                    fromUnitSelect.appendChild(fromOption);
                     
-                    const option2 = document.createElement('option');
-                    option2.value = key;
-                    option2.textContent = units[key].name;
-                    toUnitSelect.appendChild(option2);
+                    const toOption = document.createElement('option');
+                    toOption.value = unit;
+                    toOption.textContent = unit.charAt(0).toUpperCase() + unit.slice(1);
+                    toUnitSelect.appendChild(toOption);
                 }
-                
-                // Set default different units
-                if (Object.keys(units).length > 1) {
-                   toUnitSelect.selectedIndex = 1;
-                }
-                
+                toUnitSelect.selectedIndex = 1; // Set a different default
                 convert();
             }
-            
+
             function convert() {
-                const category = categorySelect.value;
-                const fromValue = parseFloat(fromValueInput.value);
+                const categoryData = conversionData[categorySelect.value];
                 const fromUnit = fromUnitSelect.value;
                 const toUnit = toUnitSelect.value;
+                const value = parseFloat(inputValue.value);
 
-                if (isNaN(fromValue)) {
-                    toValueInput.value = '';
+                if (isNaN(value)) {
+                    outputValue.value = '';
                     return;
                 }
 
                 let result;
-                const convData = conversions[category];
-
-                if (convData.convert) { // Use special conversion logic if it exists
-                    result = convData.convert(fromValue, fromUnit, toUnit);
-                } else { // Use standard base factor conversion
-                    const fromFactor = convData.units[fromUnit].factor;
-                    const toFactor = convData.units[toUnit].factor;
-                    const baseValue = fromValue * fromFactor;
-                    result = baseValue / toFactor;
+                if (categoryData.custom) {
+                    result = categoryData.custom(value, fromUnit, toUnit);
+                } else {
+                    const valueInBase = value * categoryData.units[fromUnit];
+                    result = valueInBase / categoryData.units[toUnit];
                 }
-                
+
                 // Format result to a reasonable number of decimal places
-                toValueInput.value = parseFloat(result.toFixed(6));
+                outputValue.value = Number(result.toFixed(6));
             }
 
-            // --- EVENT LISTENERS ---
+            // --- Event Listeners ---
             categorySelect.addEventListener('change', populateUnits);
-            fromValueInput.addEventListener('input', convert);
+            inputValue.addEventListener('input', convert);
             fromUnitSelect.addEventListener('change', convert);
             toUnitSelect.addEventListener('change', convert);
-            
-            // --- INITIALIZATION ---
+
+            // --- Initial Setup ---
             populateCategories();
             populateUnits();
         });
